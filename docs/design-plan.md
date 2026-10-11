@@ -74,8 +74,9 @@ GitHub Actions on every push to `main`:
 
 1. `lint` — ESLint over the modules and scripts.
 2. `validate` — html-validate over the page.
-3. `build` — copy to `dist/`, write `build.json` with commit, run number and date.
-4. `check` — every local link, asset and in-page anchor in `dist/` resolves.
-5. `deploy` — `configure-pages`, `upload-pages-artifact`, `deploy-pages`.
+3. `test` — unit tests for the retrieval and guardrail logic (added during the build).
+4. `build` — copy to `dist/`, write `build.json` with commit, run number and date.
+5. `check` — every local link, asset and in-page anchor in `dist/` resolves.
+6. `deploy` — `configure-pages`, `upload-pages-artifact`, `deploy-pages`.
 
 No analytics, trackers, cookies or client-side secrets.
