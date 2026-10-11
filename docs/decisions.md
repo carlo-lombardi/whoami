@@ -45,4 +45,16 @@ Choices that were not obvious, and why they went the way they did.
 
 ## Measurements
 
-Lighthouse results for the deployed page are recorded here after each significant change.
+Lighthouse, mobile emulation, against the deployed page on 2026-10-11 (run 1):
+
+| Performance | Accessibility | Best practices | SEO |
+|---|---|---|---|
+| 96 | 97 | 100 | 100 |
+
+The one failed audit was colour contrast on the dimmed, not-yet-reached steps of the MCP
+piece. They are no longer dimmed: the current step is marked by its border instead.
+
+## Deployment note
+
+The first deploy was rejected because the `github-pages` environment only allowed a
+branch called `Master`. `main` was added to the environment's deployment branch policy.

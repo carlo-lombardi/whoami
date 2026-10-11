@@ -181,9 +181,8 @@ input::placeholder { color: var(--muted); opacity: 1; }
 .mcp-steps li[data-dir="in"] { margin-left: auto; text-align: right; border-style: dashed; }
 .mcp-steps li[data-dir="out"]::before { content: "→ "; color: var(--muted); }
 .mcp-steps li[data-dir="in"]::after { content: " ←"; color: var(--muted); }
-.js .mcp-steps li { opacity: 0.32; }
-.js .mcp-steps li.done { opacity: 0.75; }
-.js .mcp-steps li.current { opacity: 1; border-color: var(--amber); }
+.js .mcp-steps li.done { border-color: var(--line-strong); }
+.js .mcp-steps li.current { border-color: var(--amber); border-style: solid; background: var(--bg-3); }
 .mcp-frame {
   margin: 12px 0 0; padding: 12px; background: var(--bg); border: 1px solid var(--line);
   border-radius: 8px; font-size: 12.5px; line-height: 1.5; color: var(--soft);
