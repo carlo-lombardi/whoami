@@ -34,6 +34,6 @@ export async function initStamp() {
 
   const built = new Date(build.builtAt);
   date.textContent = Number.isNaN(built.getTime())
-    ? '—'
+    ? '-'
     : `${built.toISOString().slice(0, 16).replace('T', ' ')} UTC`;
 }

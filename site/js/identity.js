@@ -4,12 +4,12 @@ const STATES = {
   joiner: {
     edges: ['u-all', 'u-wh', 'all-vpn', 'all-lap', 'wh-mb'],
     nodes: ['user', 'all', 'wh', 'vpn', 'lap', 'mb'],
-    note: 'Joiner: account created, licence assigned, added to groups, laptop enrolled. Access arrives through the groups, not by hand.'
+    note: 'Joiner: account created, licence assigned, added to groups, laptop enrolled. Access comes from group membership.'
   },
   mover: {
     edges: ['u-all', 'u-fin', 'all-vpn', 'all-lap', 'fin-sp'],
     nodes: ['user', 'all', 'fin', 'vpn', 'lap', 'sp'],
-    note: 'Mover: one group swapped for another. The old mailbox access goes at the same moment the new site access arrives, so nothing lingers.'
+    note: 'Mover: one group swapped for another. The old mailbox access is removed when the new site access is added.'
   },
   leaver: {
     edges: [],

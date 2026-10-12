@@ -2,14 +2,14 @@
 // A working model of the guardrails described in the CV; nothing is ever executed.
 
 export const RULES = [
-  { row: 0, test: /\brm\s+(-[a-z]*r[a-z]*f|-[a-z]*f[a-z]*r|--recursive\s+--force)/i, reason: 'recursive forced delete' },
-  { row: 0, test: /\bremove-item\b(?=.*-recurse)(?=.*-force)/i, reason: 'recursive forced delete' },
-  { row: 1, test: /\b(drop\s+(table|database|schema)|truncate\s+table)\b/i, reason: 'irreversible data loss' },
+  { row: 0, test: /(^|[;&|]\s*)(sudo\s+)?(rm|del|erase|rmdir|rd|unlink|shred|wipe|purge|destroy)\b/i, reason: 'deletes files or data' },
+  { row: 0, test: /^\s*delete\b(?!\s+from\b)/i, reason: 'deletes files or data' },
+  { row: 1, test: /\b(drop\s+(table|database|schema)|truncate(\s+table)?)\b/i, reason: 'irreversible data loss' },
   { row: 1, test: /\bdelete\s+from\b(?!.*\bwhere\b)/i, reason: 'DELETE without WHERE removes every row' },
-  { row: 2, test: /\bremove-(aduser|mguser|mailbox|adgroup)\b/i, reason: 'identity deletion needs a change request' },
+  { row: 2, test: /\b(remove|clear)-[a-z]+/i, reason: 'removal needs a change request' },
   { row: 3, test: /\bgit\s+push\b.*(--force|-f\b)/i, reason: 'force push rewrites shared history' },
   { row: 3, test: /\bgit\s+reset\s+--hard\b/i, reason: 'hard reset discards work' },
-  { row: -1, test: /\b(mkfs|format-volume|diskpart)\b|\bdd\s+if=/i, reason: 'writes directly to a disk' }
+  { row: 4, test: /\b(shutdown|reboot|halt|restart-computer|stop-computer|mkfs|format|format-volume|diskpart)\b|\bdd\s+if=/i, reason: 'takes a system down or wipes a disk' }
 ];
 
 const READ_ONLY = /^\s*(get-|select\b|ls\b|dir\b|cat\b|type\b|git\s+(status|log|diff)\b|whoami\b|ping\b|test-)/i;

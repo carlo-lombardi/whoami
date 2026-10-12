@@ -28,7 +28,7 @@ test('reciprocal rank fusion rewards agreement between rankers', () => {
 });
 
 test('the guardrail blocks destructive commands and allows safe ones', () => {
-  const blocked = ['rm -rf ./data', 'Remove-Item C:\\x -Recurse -Force', 'DROP TABLE users', 'DELETE FROM tickets', 'git push --force', 'Remove-ADUser jdoe'];
+  const blocked = ['rm -rf ./data', 'Remove-Item C:\\x -Recurse -Force', 'DROP TABLE users', 'DELETE FROM tickets', 'git push --force', 'Remove-ADUser jdoe', 'delete', 'del notes.txt', 'rm file.txt', 'cd /tmp && rm x', 'shutdown /s', 'format c:', 'Clear-Content log.txt'];
   const allowed = ['Get-MgUser -Top 5', 'SELECT * FROM tickets', 'DELETE FROM tickets WHERE id = 4', 'git status', 'ls -la'];
   for (const command of blocked) assert.equal(evaluate(command).allowed, false, command);
   for (const command of allowed) assert.equal(evaluate(command).allowed, true, command);

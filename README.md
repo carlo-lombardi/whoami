@@ -1,6 +1,6 @@
 # whoami
 
-Portfolio of Carlo Lombardi — IT engineer in Dublin working in cloud, identity and
+Portfolio of Carlo Lombardi, an IT engineer in Dublin working in cloud, identity and
 automation, moving into DevOps.
 
 **Live:** https://carlo-lombardi.github.io/whoami/
@@ -48,13 +48,13 @@ tools/og.html    source of the Open Graph image
 
 [`deploy.yml`](.github/workflows/deploy.yml) runs on every push to `main`:
 
-1. **Lint** — ESLint.
-2. **Validate** — html-validate.
-3. **Test** — `node --test` over the BM25, similarity, RRF and guardrail logic.
-4. **Build** — copy `site/` to `dist/` and write `build.json` with the commit SHA, run
+1. **Lint**: ESLint.
+2. **Validate**: html-validate.
+3. **Test**: `node --test` over the BM25, similarity, RRF and guardrail logic.
+4. **Build**: copy `site/` to `dist/` and write `build.json` with the commit SHA, run
    number and timestamp. The page reads that file to show which run deployed it.
-5. **Check** — every local link, asset, anchor and module import in `dist/` resolves.
-6. **Deploy** — `configure-pages`, `upload-pages-artifact`, `deploy-pages`.
+5. **Check**: every local link, asset, anchor and module import in `dist/` resolves.
+6. **Deploy**: `configure-pages`, `upload-pages-artifact`, `deploy-pages`.
 
 Pull requests run steps 1 to 5 without deploying.
 
